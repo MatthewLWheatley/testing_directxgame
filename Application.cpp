@@ -185,8 +185,9 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 	Vector3 min = transform->GetPosition() - transform->GetScale() / 2;
 	Vector3 max = transform->GetPosition() + transform->GetScale() / 2;
 	PlaneCollider* collider = new PlaneCollider(transform, normal, distance,min,max);
-	gameObject->GetPhysicsModel()->SetCollider(collider);
-
+	RigidBody* rb = new RigidBody(transform);
+	rb->SetCollider(collider);
+	gameObject->SetPhysicsModel(rb);
 
 	_gameObjects.push_back(gameObject);
 
@@ -202,6 +203,8 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 		gameObject = new GameObject("Cube " + to_string(i), sphereAppearance, transform);
 
 		SphereCollider* collider = new SphereCollider(transform, 1.0f);
+
+
 
 		gameObject->GetPhysicsModel()->ApplyGravity();
 

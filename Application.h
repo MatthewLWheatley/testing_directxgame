@@ -25,6 +25,7 @@
 #include "Quaternion.h"
 #include <d3dcompiler.h>
 #include <D3Dcompiler.h>
+#include "RigidBody.h"
 
 #define FPS60 1.0f/60.0f // Fixed frame rate of 60 fps
 

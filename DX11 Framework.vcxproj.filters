@@ -18,10 +18,15 @@
     <Filter Include="Colliders">
       <UniqueIdentifier>{980517c7-c560-482f-9675-139a47c8aa92}</UniqueIdentifier>
     </Filter>
+    <Filter Include="physicsModels">
+      <UniqueIdentifier>{4fb3989a-942f-4d42-b169-1ba041364afe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects">
+      <UniqueIdentifier>{6ce300da-b5cc-43c4-bdf9-4adc89ef62fe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
-    <ClInclude Include="GameObject.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Structures.h" />
     <ClInclude Include="Loaders\DDSTextureLoader.h">
@@ -31,12 +36,8 @@
       <Filter>Loaders</Filter>
     </ClInclude>
     <ClInclude Include="Vector3.h" />
-    <ClInclude Include="Transform.h" />
-    <ClInclude Include="Appearance.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="Timer.h" />
-    <ClInclude Include="PhysicsModel.h" />
-    <ClInclude Include="ParticleModel.h" />
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="AABBCollider.h">
       <Filter>Colliders</Filter>
@@ -51,10 +52,27 @@
       <Filter>Colliders</Filter>
     </ClInclude>
     <ClInclude Include="Math.h" />
+    <ClInclude Include="PhysicsModel.h">
+      <Filter>physicsModels</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleModel.h">
+      <Filter>physicsModels</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBody.h">
+      <Filter>physicsModels</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Appearance.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
-    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Loaders\DDSTextureLoader.cpp">
@@ -63,12 +81,8 @@
     <ClCompile Include="Loaders\OBJLoader.cpp">
       <Filter>Loaders</Filter>
     </ClCompile>
-    <ClCompile Include="Transform.cpp" />
-    <ClCompile Include="Appearance.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="Timer.cpp" />
-    <ClCompile Include="PhysicsModel.cpp" />
-    <ClCompile Include="ParticleModel.cpp" />
     <ClCompile Include="AABBCollider.cpp">
       <Filter>Colliders</Filter>
     </ClCompile>
@@ -82,6 +96,24 @@
       <Filter>Colliders</Filter>
     </ClCompile>
     <ClCompile Include="Math.cpp" />
+    <ClCompile Include="PhysicsModel.cpp">
+      <Filter>physicsModels</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleModel.cpp">
+      <Filter>physicsModels</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidBody.cpp">
+      <Filter>physicsModels</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Appearance.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">

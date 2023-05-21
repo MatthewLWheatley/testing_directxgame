@@ -386,6 +386,7 @@
     <ClCompile Include="ParticleModel.cpp" />
     <ClCompile Include="PhysicsModel.cpp" />
     <ClCompile Include="PlaneCollider.cpp" />
+    <ClCompile Include="RigidBody.cpp" />
     <ClCompile Include="SphereCollider.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Transform.cpp" />
@@ -406,6 +407,7 @@
     <ClInclude Include="PlaneCollider.h" />
     <ClInclude Include="Quaternion.h" />
     <CLInclude Include="resource.h" />
+    <ClInclude Include="RigidBody.h" />
     <ClInclude Include="SphereCollider.h" />
     <ClInclude Include="Structures.h" />
     <ClInclude Include="Timer.h" />

@@ -1,29 +1,156 @@
 ﻿  Application.cpp
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(195,23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(200,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\ParticleModel.h(17,82): warning C4100: 'gravityInversion': unreferenced formal parameter
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\ParticleModel.h(17,64): warning C4100: 'pertubation': unreferenced formal parameter
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\ParticleModel.h(17,47): warning C4100: 'resetTime': unreferenced formal parameter
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(204,19): warning C4456: declaration of 'collider' hides previous local declaration
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(187,17): message : see declaration of 'collider'
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(217,12): warning C4456: declaration of 'min' hides previous local declaration
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(185,10): message : see declaration of 'min'
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(218,12): warning C4456: declaration of 'max' hides previous local declaration
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(186,10): message : see declaration of 'max'
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(219,18): warning C4456: declaration of 'collider' hides previous local declaration
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(204,19): message : see declaration of 'collider'
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(193,13): warning C4101: 'gameObjectTransform': unreferenced local variable
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(527,10): error C3861: 'D3DCompileFromFile': identifier not found
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(766,21): warning C4244: 'initializing': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(887,49): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(888,48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(1028,15): warning C4456: declaration of 'i' hides previous local declaration
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(984,11): message : see declaration of 'i'
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(1083,15): warning C4456: declaration of 'inverseMass1' hides previous local declaration
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(1061,13): message : see declaration of 'inverseMass1'
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(1084,15): warning C4456: declaration of 'inverseMass2' hides previous local declaration
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(1062,13): message : see declaration of 'inverseMass2'
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(1200,95): warning C4239: nonstandard extension used: 'argument': conversion from 'Vector3' to 'Vector3 &'
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(1200,95): message : A non-const reference may only be bound to an lvalue
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(1273,16): warning C4456: declaration of 'i' hides previous local declaration
-C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(984,11): message : see declaration of 'i'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Quaternion.h(195,23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Quaternion.h(200,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\ParticleModel.h(16,82): warning C4100: 'gravityInversion': unreferenced formal parameter
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\ParticleModel.h(16,64): warning C4100: 'pertubation': unreferenced formal parameter
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\ParticleModel.h(16,47): warning C4100: 'resetTime': unreferenced formal parameter
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\GameObject.h(25,14): error C2143: syntax error: missing ';' before '*'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\GameObject.h(25,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\GameObject.h(26,5): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(205,19): warning C4456: declaration of 'collider' hides previous local declaration
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(187,17): message : see declaration of 'collider'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(209,34): error C2039: 'ApplyGravity': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(211,34): error C2039: 'SetCollider': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(220,12): warning C4456: declaration of 'min' hides previous local declaration
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(185,10): message : see declaration of 'min'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(221,12): warning C4456: declaration of 'max' hides previous local declaration
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(186,10): message : see declaration of 'max'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(222,18): warning C4456: declaration of 'collider' hides previous local declaration
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(205,19): message : see declaration of 'collider'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(224,35): error C2039: 'SetCollider': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(225,35): error C2039: 'ApplyGravity': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(246,43): error C2039: 'IsCollideable': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(248,53): error C2039: 'GetCollider': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(252,41): error C2039: 'ToggleGravity': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(530,10): error C3861: 'D3DCompileFromFile': identifier not found
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(746,49): error C2039: 'ToggleGravity': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(769,21): warning C4244: 'initializing': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(890,49): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(891,48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(961,50): error C2039: 'AddForce': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(964,50): error C2039: 'AddForce': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(967,50): error C2039: 'AddForce': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(970,50): error C2039: 'AddForce': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(973,54): error C2039: 'GetCollider': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(975,51): error C2039: 'ToggleGravity': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(976,51): error C2039: 'GetCollider': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(977,51): error C2039: 'ApplyImpulse': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(992,44): error C2039: 'IsCollideable': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(992,99): error C2039: 'IsCollideable': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(995,63): error C2039: 'GetCollider': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(996,63): error C2039: 'GetCollider': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1004,43): error C2039: 'ToggleGravity': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1011,43): error C2039: 'ToggleGravity': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1031,15): warning C4456: declaration of 'i' hides previous local declaration
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(987,11): message : see declaration of 'i'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1036,44): error C2039: 'ToggleGravity': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1042,44): error C2039: 'ToggleGravity': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1057,59): error C2039: 'GetCollider': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1058,59): error C2039: 'GetCollider': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1064,68): error C2039: 'GetMass': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1065,68): error C2039: 'GetMass': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1082,71): error C2039: 'GetVelocity': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1082,123): error C2039: 'GetVelocity': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1086,15): warning C4456: declaration of 'inverseMass1' hides previous local declaration
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1064,13): message : see declaration of 'inverseMass1'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1086,70): error C2039: 'GetMass': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1087,15): warning C4456: declaration of 'inverseMass2' hides previous local declaration
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1065,13): message : see declaration of 'inverseMass2'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1087,70): error C2039: 'GetMass': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1091,45): error C2039: 'ApplyImpulse': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1092,45): error C2039: 'ApplyImpulse': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1137,68): error C2039: 'GetMass': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1138,68): error C2039: 'GetMass': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1155,70): error C2039: 'GetVelocity': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1155,122): error C2039: 'GetVelocity': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1159,69): error C2039: 'GetInverseMass': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1159,124): error C2039: 'GetInverseMass': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1163,44): error C2039: 'ApplyImpulse': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1164,44): error C2039: 'ApplyImpulse': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1185,46): error C2039: 'GetCollider': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1186,44): error C2039: 'GetCollider': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1196,61): error C2039: 'GetVelocity': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1196,102): error C2039: 'GetVelocity': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1200,65): error C2039: 'GetMass': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1201,61): error C2039: 'GetMass': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1203,95): warning C4239: nonstandard extension used: 'argument': conversion from 'Vector3' to 'Vector3 &'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1203,95): message : A non-const reference may only be bound to an lvalue
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1228,35): error C2039: 'ApplyImpulse': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1229,33): error C2039: 'ApplyImpulse': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1236,70): error C2039: 'GetVelocity': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1244,58): error C2039: 'GetVelocity': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1246,43): error C2039: 'SetVelocity': is not a member of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\PhysicsModel.h(14,7): message : see declaration of 'PhysicsModel'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(1276,16): warning C4456: declaration of 'i' hides previous local declaration
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(987,11): message : see declaration of 'i'
+  Main.cpp
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Quaternion.h(195,23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Quaternion.h(200,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\ParticleModel.h(16,82): warning C4100: 'gravityInversion': unreferenced formal parameter
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\ParticleModel.h(16,64): warning C4100: 'pertubation': unreferenced formal parameter
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\ParticleModel.h(16,47): warning C4100: 'resetTime': unreferenced formal parameter
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\GameObject.h(25,14): error C2143: syntax error: missing ';' before '*'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\GameObject.h(25,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\GameObject.h(26,5): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+  GameObject.cpp
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Quaternion.h(195,23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\Quaternion.h(200,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\ParticleModel.h(16,82): warning C4100: 'gravityInversion': unreferenced formal parameter
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\ParticleModel.h(16,64): warning C4100: 'pertubation': unreferenced formal parameter
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\ParticleModel.h(16,47): warning C4100: 'resetTime': unreferenced formal parameter
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\GameObject.h(25,14): error C2143: syntax error: missing ';' before '*'
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\GameObject.h(25,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Matty\Desktop\testt\test\testing_directxgame\GameObject.h(26,5): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+  Generating Code...

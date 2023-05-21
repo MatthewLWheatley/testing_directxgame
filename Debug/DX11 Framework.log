@@ -1,0 +1,88 @@
+﻿  AABBCollider.cpp
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(195,23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(200,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\AABBCollider.cpp(30,75): warning C4239: nonstandard extension used: 'argument': conversion from 'Vector3' to 'Vector3 &'
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\AABBCollider.cpp(30,75): message : A non-const reference may only be bound to an lvalue
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\AABBCollider.cpp(30,126): warning C4239: nonstandard extension used: 'argument': conversion from 'Vector3' to 'Vector3 &'
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\AABBCollider.cpp(30,126): message : A non-const reference may only be bound to an lvalue
+  Appearance.cpp
+  Application.cpp
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(195,23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(200,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\ParticleModel.h(17,82): warning C4100: 'gravityInversion': unreferenced formal parameter
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\ParticleModel.h(17,64): warning C4100: 'pertubation': unreferenced formal parameter
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\ParticleModel.h(17,47): warning C4100: 'resetTime': unreferenced formal parameter
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(204,19): warning C4456: declaration of 'collider' hides previous local declaration
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(187,17): message : see declaration of 'collider'
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(217,12): warning C4456: declaration of 'min' hides previous local declaration
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(185,10): message : see declaration of 'min'
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(218,12): warning C4456: declaration of 'max' hides previous local declaration
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(186,10): message : see declaration of 'max'
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(219,18): warning C4456: declaration of 'collider' hides previous local declaration
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(204,19): message : see declaration of 'collider'
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(241,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(193,13): warning C4101: 'gameObjectTransform': unreferenced local variable
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(766,21): warning C4244: 'initializing': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(758,10): warning C4189: 'seconds': local variable is initialized but not referenced
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(887,49): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(888,48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(984,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(986,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(1028,15): warning C4456: declaration of 'i' hides previous local declaration
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(984,11): message : see declaration of 'i'
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(1083,15): warning C4456: declaration of 'inverseMass1' hides previous local declaration
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(1061,13): message : see declaration of 'inverseMass1'
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(1084,15): warning C4456: declaration of 'inverseMass2' hides previous local declaration
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(1062,13): message : see declaration of 'inverseMass2'
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(1200,95): warning C4239: nonstandard extension used: 'argument': conversion from 'Vector3' to 'Vector3 &'
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(1200,95): message : A non-const reference may only be bound to an lvalue
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(1273,16): warning C4456: declaration of 'i' hides previous local declaration
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Application.cpp(984,11): message : see declaration of 'i'
+  Camera.cpp
+  Collider.cpp
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(195,23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(200,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Debug.cpp
+  DDSTextureLoader.cpp
+  OBJLoader.cpp
+  Main.cpp
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(195,23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(200,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\ParticleModel.h(17,82): warning C4100: 'gravityInversion': unreferenced formal parameter
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\ParticleModel.h(17,64): warning C4100: 'pertubation': unreferenced formal parameter
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\ParticleModel.h(17,47): warning C4100: 'resetTime': unreferenced formal parameter
+  GameObject.cpp
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(195,23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(200,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\ParticleModel.h(17,82): warning C4100: 'gravityInversion': unreferenced formal parameter
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\ParticleModel.h(17,64): warning C4100: 'pertubation': unreferenced formal parameter
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\ParticleModel.h(17,47): warning C4100: 'resetTime': unreferenced formal parameter
+  Math.cpp
+  ParticleModel.cpp
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(195,23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(200,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\ParticleModel.h(17,82): warning C4100: 'gravityInversion': unreferenced formal parameter
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\ParticleModel.h(17,64): warning C4100: 'pertubation': unreferenced formal parameter
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\ParticleModel.h(17,47): warning C4100: 'resetTime': unreferenced formal parameter
+  PhysicsModel.cpp
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(195,23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(200,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  PlaneCollider.cpp
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(195,23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(200,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\PlaneCollider.cpp(41,49): warning C4100: 'other': unreferenced formal parameter
+  SphereCollider.cpp
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(195,23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(200,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\SphereCollider.cpp(8,69): warning C4239: nonstandard extension used: 'argument': conversion from 'Vector3' to 'Vector3 &'
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\SphereCollider.cpp(8,69): message : A non-const reference may only be bound to an lvalue
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\SphereCollider.cpp(8,48): warning C4239: nonstandard extension used: 'argument': conversion from 'Vector3' to 'Vector3 &'
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\SphereCollider.cpp(8,48): message : A non-const reference may only be bound to an lvalue
+  Timer.cpp
+  Transform.cpp
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(195,23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Quaternion.h(200,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Transform.cpp(14,30): warning C4100: 'deltaTime': unreferenced formal parameter
+  Generating Code...
+AABBCollider.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  DX11 Framework.vcxproj -> C:\Users\Matty\Documents\GitHub\semester-2-physics-assignment-MatthewLWheatley\Debug\DX11 Framework.exe

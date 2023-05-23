@@ -24,6 +24,9 @@ public:
 
     float GetColliderType() override { return 2.0f; }
 
+    void Collide(SphereCollider* other) override;
+    void Collide(AABBCollider* other) override;
+    void Collide(PlaneCollider* other) override;
 
     bool IsGrounded() const { return _grounded; }
     void SetGrounded() { _grounded = !_grounded; }

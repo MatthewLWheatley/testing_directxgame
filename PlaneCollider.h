@@ -26,6 +26,9 @@ public:
     Vector3 GetMin() const { return _min; }
     Vector3 GetMax() const { return _max; }
 
+    void Collide(SphereCollider* other) override;
+    void Collide(AABBCollider* other) override;
+    void Collide(PlaneCollider* other) override;
 
     Vector3 GetNormal() override { return _normal; }
     float GetDistance() const { return _distance; }

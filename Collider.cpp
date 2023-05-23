@@ -41,3 +41,13 @@ float Collider::GetDistance()
 {
     return 0.0f;
 }
+
+void Collider::SetRigidBody(RigidBody* rb)
+{
+    _rb = rb;
+}
+
+RigidBody* Collider::GetRigidBody()
+{
+    return _rb;
+}

@@ -187,6 +187,8 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 	PlaneCollider* collider = new PlaneCollider(transform, normal, distance,min,max);
 	RigidBody* rb = new RigidBody(transform);
 	rb->SetCollider(collider);
+	collider->SetRigidBody(rb);
+
 	gameObject->SetPhysicsModel(rb);
 
 	_gameObjects.push_back(gameObject);
@@ -204,11 +206,14 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 		SphereCollider* collider = new SphereCollider(transform, 1.0f);
 
+		RigidBody* rb = new RigidBody(transform);
 
+		rb->ApplyGravity();
+		rb->SetCollider(collider);
 
-		gameObject->GetPhysicsModel()->ApplyGravity();
+		collider->SetRigidBody(rb);
+		gameObject->SetPhysicsModel(rb);
 
-		gameObject->GetPhysicsModel()->SetCollider(collider);
 
 		if (i == 1 || i == 3)
 		{
@@ -221,11 +226,16 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 			Vector3 max = Vector3(1, 1, 1);
 			AABBCollider* collider = new AABBCollider(transform, min, max);
 
-			gameObject->GetPhysicsModel()->SetCollider(collider);
-			gameObject->GetPhysicsModel()->ApplyGravity();
+			rb = new RigidBody(transform);
+
+			rb->ApplyGravity();
+			rb->SetCollider(collider);
+			
+			collider->SetRigidBody(rb);
+			gameObject->SetPhysicsModel(rb);
 		}
 
-		//gameObject->GetPhysicsModel()->ToggleGravity();
+		//gameObject->GetRigidBodyPhysicsModel()->ToggleGravity();
 		_gameObjects.push_back(gameObject);
 	}
 
@@ -240,19 +250,6 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 
 	_gameObjects.push_back(gameObject);
-
-	for (int i = 0; i < _gameObjects.size(); i++)
-	{
-		if (_gameObjects[i]->GetPhysicsModel()->IsCollideable())
-		{
-			float temp = _gameObjects[i]->GetPhysicsModel()->GetCollider()->GetColliderType();
-			if (temp == 1.0f || temp == 2.0f)
-			{
-				//DebugPrintF("oops");
-				_gameObjects[i]->GetPhysicsModel()->ToggleGravity(true);
-			}
-		}
-	}
 
 	return S_OK;
 }
@@ -739,14 +736,6 @@ void Application::Cleanup()
 	}
 }
 
-
-
-void Application::ToggleGravity(int objectNumber) 
-{
-	_gameObjects[objectNumber]->GetPhysicsModel()->ToggleGravity();
-}
-
-
 int times = 0;
 std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
 std::chrono::high_resolution_clock::time_point t2;
@@ -958,23 +947,23 @@ void Application::move(int objectNumber, int dir)
 	switch (dir)
 	{
 	case 1:
-		_gameObjects[objectNumber]->GetPhysicsModel()->AddForce(Vector3(0.0f, 0.0f, -speed));
+		_gameObjects[objectNumber]->GetRigidBodyPhysicsModel()->AddForce(Vector3(0.0f, 0.0f, -speed));
 		break;
 	case 2:
-		_gameObjects[objectNumber]->GetPhysicsModel()->AddForce(Vector3(0.0f, 0.f, speed));
+		_gameObjects[objectNumber]->GetRigidBodyPhysicsModel()->AddForce(Vector3(0.0f, 0.f, speed));
 		break;
 	case 3:
-		_gameObjects[objectNumber]->GetPhysicsModel()->AddForce(Vector3(-speed, 0.0f, 0.0f));
+		_gameObjects[objectNumber]->GetRigidBodyPhysicsModel()->AddForce(Vector3(-speed, 0.0f, 0.0f));
 		break;
 	case 4:
-		_gameObjects[objectNumber]->GetPhysicsModel()->AddForce(Vector3(speed, 0.0f, 0.0f));
+		_gameObjects[objectNumber]->GetRigidBodyPhysicsModel()->AddForce(Vector3(speed, 0.0f, 0.0f));
 		break;
 	case 5:
-		if (_gameObjects[objectNumber]->GetPhysicsModel()->GetCollider()->IsGrounded())
+		if (_gameObjects[objectNumber]->GetRigidBodyPhysicsModel()->GetCollider()->IsGrounded())
 		{
-			_gameObjects[objectNumber]->GetPhysicsModel()->ToggleGravity(false);
-			_gameObjects[objectNumber]->GetPhysicsModel()->GetCollider()->SetGrounded(false);
-			_gameObjects[objectNumber]->GetPhysicsModel()->ApplyImpulse(Vector3(0.0f, 10.0f, 0.0f));
+			_gameObjects[objectNumber]->GetRigidBodyPhysicsModel()->ToggleGravity(false);
+			_gameObjects[objectNumber]->GetRigidBodyPhysicsModel()->GetCollider()->SetGrounded(false);
+			_gameObjects[objectNumber]->GetRigidBodyPhysicsModel()->ApplyImpulse(Vector3(0.0f, 10.0f, 0.0f));
 		}
 		break;
 	default:
@@ -982,282 +971,37 @@ void Application::move(int objectNumber, int dir)
 	}
 }
 
-void Application::CollisionHandeling() 
+void Application::CollisionHandeling()
 {
 	for (int i = 0; i < _gameObjects.size(); i++)
 	{
 		for (int k = i + 1; k < _gameObjects.size(); k++)
 		{
-
-			if (_gameObjects[i]->GetPhysicsModel()->IsCollideable() && _gameObjects[k]->GetPhysicsModel()->IsCollideable())
+			if (_gameObjects[i]->GetRigidBodyPhysicsModel() && _gameObjects[k]->GetRigidBodyPhysicsModel())
 			{
-
-				Collider* collider1 = _gameObjects[i]->GetPhysicsModel()->GetCollider();
-				Collider* collider2 = _gameObjects[k]->GetPhysicsModel()->GetCollider();
-
-				if (collider1->GetColliderType() == 3.0f && collider2->GetColliderType() == 1.0f)
+				if (_gameObjects[i]->GetRigidBodyPhysicsModel()->IsCollideable() && _gameObjects[k]->GetRigidBodyPhysicsModel()->IsCollideable())
 				{
-					float distanceToGround = _math.Dot(collider1->GetNormal(), collider2->GetPosition()) - collider1->GetDistance();
-					if (distanceToGround >= 0.1f)
+					Collider* collider1 = _gameObjects[i]->GetRigidBodyPhysicsModel()->GetCollider();
+					Collider* collider2 = _gameObjects[k]->GetRigidBodyPhysicsModel()->GetCollider();
+
+					if (collider1->GetColliderType() == 3.0f && collider2->GetColliderType() == 1.0f)
 					{
-						// Sphere is not on the ground
-						_gameObjects[k]->GetPhysicsModel()->ToggleGravity(true);
-						collider2->SetGrounded(false);
-						//DebugPrintF("\nnot ground");
-					}
-					else
-					{
-						// Sphere is on the ground
-						_gameObjects[k]->GetPhysicsModel()->ToggleGravity(false);
-						collider2->SetGrounded(true);
-						//DebugPrintF("\nground");
-					}
-
-				}
-				if (collider1->GetColliderType() == 3.0f && collider2->GetColliderType() == 2.0f)
-				{
-					Vector3 aMin = collider2->GetPosition() + collider2->GetMin();
-					Vector3 aMax = collider2->GetPosition() + collider2->GetMax();
-
-					Vector3 corners[4] = {
-						Vector3(aMin.x, aMin.y, aMin.z),
-						Vector3(aMin.x, aMin.y, aMax.z),
-						Vector3(aMax.x, aMin.y, aMin.z),
-						Vector3(aMax.x, aMin.y, aMax.z)
-					};
-
-					float distanceToGround = 0.0f;
-
-					for (int i = 0; i < 4; i++)
-					{
-						distanceToGround = -_math.Dot(collider1->GetNormal(), corners[i]) - collider1->GetDistance() - 1;
-						if (distanceToGround <= 0.1f)
+						float distanceToGround = _math.Dot(collider1->GetNormal(), collider2->GetPosition()) - collider1->GetDistance();
+						if (distanceToGround >= 0.1f)
 						{
-							_gameObjects[k]->GetPhysicsModel()->ToggleGravity(true);
+							// Sphere is not on the ground
+							_gameObjects[k]->GetRigidBodyPhysicsModel()->ToggleGravity(true);
 							collider2->SetGrounded(false);
 							//DebugPrintF("\nnot ground");
 						}
 						else
 						{
-							_gameObjects[k]->GetPhysicsModel()->ToggleGravity(false);
+							// Sphere is on the ground
+							_gameObjects[k]->GetRigidBodyPhysicsModel()->ToggleGravity(false);
 							collider2->SetGrounded(true);
 							//DebugPrintF("\nground");
 						}
-					}
-				}
-				//}
-				if (collider1->CollidesWith(*collider2))
-				{
-					//sphere colliders
-					if (collider1->GetColliderType() == 1.0f && collider2->GetColliderType() == 1.0f)
-					{
-						//DebugPrintF("sphere and sphere");
-						Vector3 position1 = _gameObjects[i]->GetTransform()->GetPosition();
-						Vector3 position2 = _gameObjects[k]->GetTransform()->GetPosition();
-						float radius1 = _gameObjects[i]->GetPhysicsModel()->GetCollider()->GetRadius();
-						float radius2 = _gameObjects[k]->GetPhysicsModel()->GetCollider()->GetRadius();
 
-						Vector3 collisionNormal = position1 - position2;
-						float distance = _math.Length(collisionNormal);
-						float penetrationDepth = distance - radius1 - radius2;
-
-						float inverseMass1 = 1 / _gameObjects[i]->GetPhysicsModel()->GetMass();
-						float inverseMass2 = 1 / _gameObjects[k]->GetPhysicsModel()->GetMass();
-
-						if (penetrationDepth < 0.0f) {
-							// Objects are overlapping
-							collisionNormal.Normalize();
-
-							Vector3 correction = collisionNormal * penetrationDepth;
-							correction *= (inverseMass1 / (inverseMass1 + inverseMass2));
-
-							position1 -= correction * inverseMass1;
-							position2 += correction * inverseMass2;
-
-							_gameObjects[i]->GetTransform()->SetPosition(position1);
-							_gameObjects[k]->GetTransform()->SetPosition(position2);
-
-							// Now you can apply the impulse as before
-							float restitution = 0.8f;
-							Vector3 relativeVelocity = _gameObjects[i]->GetPhysicsModel()->GetVelocity() - _gameObjects[k]->GetPhysicsModel()->GetVelocity();
-							if (_math.Dot(collisionNormal, relativeVelocity) < 0.0f)
-							{
-								float vj = -(1 + restitution) * _math.Dot(collisionNormal, relativeVelocity);
-								float inverseMass1 = 1 / _gameObjects[i]->GetPhysicsModel()->GetMass();
-								float inverseMass2 = 1 / _gameObjects[k]->GetPhysicsModel()->GetMass();
-								float j = vj / (inverseMass1 + inverseMass2);
-								Vector3 impulse1 = inverseMass1 * j * collisionNormal;
-								Vector3 impulse2 = -inverseMass2 * j * collisionNormal;
-								_gameObjects[i]->GetPhysicsModel()->ApplyImpulse(impulse1);
-								_gameObjects[k]->GetPhysicsModel()->ApplyImpulse(impulse2);
-							}
-						}
-					}
-					//cube colliders
-					if (collider1->GetColliderType() == 2.0f && collider2->GetColliderType() == 2.0f)
-					{
-						//DebugPrintF("cube and cube");
-						Vector3 pos1 = collider1->GetPosition();
-						Vector3 aMin = pos1 + collider1->GetMin();
-						Vector3 aMax = pos1 + collider1->GetMax();
-						//DebugPrintF("\ncube 1: pos %f %f %f \nmin  %f %f %f \nmax  %f %f %f", pos1.x, pos1.y, pos1.z, aMin.x, aMin.y, aMin.z, aMax.x, aMax.y, aMax.z);
-						Vector3 pos2 = collider2->GetPosition();
-						Vector3 bMin = pos2 + collider2->GetMin();
-						Vector3 bMax = pos2 + collider2->GetMax();
-						//DebugPrintF("\ncube 1: pos %f %f %f\n min  %f %f %f\n max  %f %f %f", pos2.x, pos2.y, pos2.z, bMin.x, bMin.y, bMin.z, bMax.x, bMax.y, bMax.z);
-						float xOverlap = min(aMax.x, bMax.x) - max(aMin.x, bMin.x);
-						float yOverlap = min(aMax.y, bMax.y) - max(aMin.y, bMin.y);
-						float zOverlap = min(aMax.z, bMax.z) - max(aMin.z, bMin.z);
-
-						Vector3 collisionNormal = Vector3(0, 0, 0);
-
-						//DebugPrintF("\ncollision norm %f %f %f", collisionNormal.x, collisionNormal.y, collisionNormal.z);
-
-						if (xOverlap < yOverlap && xOverlap < zOverlap)
-						{
-							if (aMin.x < bMin.x) collisionNormal = Vector3(-1.0f, 0.0f, 0.0f);
-							else collisionNormal = Vector3(1.0f, 0.0f, 0.0f);
-						}
-						else if (yOverlap < zOverlap)
-						{
-							if (aMin.y < bMin.y) collisionNormal = Vector3(0.0f, -1.0f, 0.0f);
-							else collisionNormal = Vector3(0.0f, 1.0f, 0.0f);
-						}
-						else
-						{
-							if (aMin.z < bMin.z) collisionNormal = Vector3(0.0f, 0.0f, -1.0f);
-							else collisionNormal = Vector3(0.0f, 0.0f, 1.0f);
-						}
-
-						float penetrationDepth = _math.Min(xOverlap, _math.Min(yOverlap, zOverlap));
-
-
-						//DebugPrintF("\npenetrationDepth %f", penetrationDepth);
-
-						float inverseMass1 = 1 / _gameObjects[i]->GetPhysicsModel()->GetMass();
-						float inverseMass2 = 1 / _gameObjects[k]->GetPhysicsModel()->GetMass();
-
-						if (penetrationDepth > 0.0f) {
-							Vector3 correction = collisionNormal * penetrationDepth;
-							correction *= (inverseMass1 / (inverseMass1 + inverseMass2));
-							DebugPrintF("\n%f %f %f", correction.x, correction.y, correction.z);
-							Vector3 position1 = _gameObjects[i]->GetTransform()->GetPosition();
-							Vector3 position2 = _gameObjects[k]->GetTransform()->GetPosition();
-
-							position1 += correction * inverseMass1;
-							position2 -= correction * inverseMass2;
-
-							_gameObjects[i]->GetTransform()->SetPosition(position1);
-							_gameObjects[k]->GetTransform()->SetPosition(position2);
-						}
-
-						float restitution = 0.6f;
-						Vector3 relativeVelocity = _gameObjects[i]->GetPhysicsModel()->GetVelocity() - _gameObjects[k]->GetPhysicsModel()->GetVelocity();
-						float relativeSpeedAlongNormal = _math.Dot(relativeVelocity, collisionNormal);
-						if (relativeSpeedAlongNormal < 0.0f)
-						{
-							float totalInverseMass = _gameObjects[i]->GetPhysicsModel()->GetInverseMass() + _gameObjects[k]->GetPhysicsModel()->GetInverseMass();
-							if (totalInverseMass <= 0.0f) return;
-							float impulseMagnitude = -(1.0f + restitution) * relativeSpeedAlongNormal / totalInverseMass;
-							Vector3 impulse = impulseMagnitude * collisionNormal;
-							_gameObjects[i]->GetPhysicsModel()->ApplyImpulse(impulse);
-							_gameObjects[k]->GetPhysicsModel()->ApplyImpulse(-impulse);
-						}
-					}
-					//sphere and cube
-					if ((collider1->GetColliderType() == 1.0f && collider2->GetColliderType() == 2.0f) ||
-						(collider1->GetColliderType() == 2.0f && collider2->GetColliderType() == 1.0f))
-					{
-						//DebugPrintF("sphere and cube\n");
-
-						GameObject* sphere = nullptr;
-						GameObject* cube = nullptr;
-
-						if (collider1->GetColliderType() == 1.0f) {
-							sphere = _gameObjects[i];
-							cube = _gameObjects[k];
-						}
-						else {
-							sphere = _gameObjects[k];
-							cube = _gameObjects[i];
-						}
-
-						collider1 = sphere->GetPhysicsModel()->GetCollider();
-						collider2 = cube->GetPhysicsModel()->GetCollider();
-
-						Vector3 aMin = cube->GetTransform()->GetPosition() + collider2->GetMin();
-						Vector3 aMax = cube->GetTransform()->GetPosition() + collider2->GetMax();
-
-						Vector3 closestPoint = _math.Clamp(collider1->GetPosition(), aMin, aMax);
-
-						Vector3 collisionNormal = collider1->GetPosition() - closestPoint;
-						collisionNormal = _math.Normalise(collisionNormal);
-
-						Vector3 relativeVelocity = sphere->GetPhysicsModel()->GetVelocity() - cube->GetPhysicsModel()->GetVelocity();
-
-						if (_math.Dot(collisionNormal, relativeVelocity) <= 0.0f)
-						{
-							float sphereInverseMass = 1 / sphere->GetPhysicsModel()->GetMass();
-							float aabbInverseMass = 1 / cube->GetPhysicsModel()->GetMass();
-
-							float penetrationDepth = collider1->GetRadius() - _math.Distance(collider1->GetPosition(), closestPoint);
-
-							if (penetrationDepth > 0.0f) {
-								const float percent = 0.2f;
-								const float slop = 0.01f;
-								Vector3 correction = max(penetrationDepth - slop, 0.0f) / (sphereInverseMass + aabbInverseMass) * percent * collisionNormal;
-
-								Vector3 position1 = cube->GetTransform()->GetPosition();
-								Vector3 position2 = sphere->GetTransform()->GetPosition();
-
-								position1 -= correction * sphereInverseMass;
-								position2 += correction * aabbInverseMass;
-
-								cube->GetTransform()->SetPosition(position1);
-								sphere->GetTransform()->SetPosition(position2);
-							}
-
-							float restitution = 0.8f;
-
-
-							float impulseScalar = -(1 + restitution) * _math.Dot(collisionNormal, relativeVelocity) / (sphereInverseMass + aabbInverseMass);
-
-							Vector3 sphereImpulse = impulseScalar * sphereInverseMass * collisionNormal;
-							Vector3 aabbImpulse = -impulseScalar * aabbInverseMass * collisionNormal;
-
-							sphere->GetPhysicsModel()->ApplyImpulse(sphereImpulse);
-							cube->GetPhysicsModel()->ApplyImpulse(aabbImpulse);
-
-
-						}
-					}
-					if (collider1->GetColliderType() == 3.0f && collider2->GetColliderType() == 1.0f)
-					{
-						Vector3 relativeVelocity = _gameObjects[k]->GetPhysicsModel()->GetVelocity();
-
-						float dotProduct = _math.Dot(relativeVelocity, collider1->GetNormal());
-						Vector3 reflection = relativeVelocity - 2.0f * dotProduct * collider1->GetNormal();
-
-						float dampingFactor = 0.2f;
-						Vector3 newVelocity = dampingFactor * reflection;
-						//DebugPrintF("\n%f %f %f",newVelocity.x, newVelocity.y, newVelocity.z);
-						Vector3 temp = _gameObjects[k]->GetPhysicsModel()->GetVelocity();
-						temp.y = newVelocity.y;
-						_gameObjects[k]->GetPhysicsModel()->SetVelocity(temp);
-
-
-						float penetrationDepth = -(_math.Dot((collider2->GetPosition() - collider1->GetPosition()), collider1->GetNormal()) - collider2->GetRadius());
-						//DebugPrintF("\n%f", penetrationDepth);
-						if (penetrationDepth > 0.0f)
-						{
-							penetrationDepth = std::ceil(penetrationDepth * 100) / 100;
-							//DebugPrintF("\n%f", penetrationDepth);
-							Vector3 correction = penetrationDepth * collider1->GetNormal();
-							Vector3 newPosition = collider2->GetPosition() + correction;
-							_gameObjects[k]->GetTransform()->SetPosition(newPosition);
-						}
-
-						collider2->SetGrounded(true);
 					}
 					if (collider1->GetColliderType() == 3.0f && collider2->GetColliderType() == 2.0f)
 					{
@@ -1271,21 +1015,279 @@ void Application::CollisionHandeling()
 							Vector3(aMax.x, aMin.y, aMax.z)
 						};
 
-						float distance = 0.0f;
+						float distanceToGround = 0.0f;
 
 						for (int i = 0; i < 4; i++)
 						{
-							distance = -_math.Dot(collider1->GetNormal(), corners[i]) - collider1->GetDistance()-1;
-							if (distance >= 0.00) 
+							distanceToGround = -_math.Dot(collider1->GetNormal(), corners[i]) - collider1->GetDistance() - 1;
+							if (distanceToGround <= 0.1f)
 							{
-								break;
+								_gameObjects[k]->GetRigidBodyPhysicsModel()->ToggleGravity(true);
+								collider2->SetGrounded(false);
+								//DebugPrintF("\nnot ground");
+							}
+							else
+							{
+								_gameObjects[k]->GetRigidBodyPhysicsModel()->ToggleGravity(false);
+								collider2->SetGrounded(true);
+								//DebugPrintF("\nground");
+							}
+						}
+					}
+					if (collider1->CollidesWith(*collider2))
+					{
+						DebugPrintF("\n%f", _gameObjects[i]->GetRigidBodyPhysicsModel()->GetCollider()->GetColliderType());
+						DebugPrintF("\n%f", _gameObjects[k]->GetRigidBodyPhysicsModel()->GetCollider()->GetColliderType());
+						_gameObjects[i]->GetRigidBodyPhysicsModel()->GetCollider()->Collide(_gameObjects[i]->GetRigidBodyPhysicsModel()->GetCollider());
+
+
+						/*
+						//sphere colliders
+						if (collider1->GetColliderType() == 1.0f && collider2->GetColliderType() == 1.0f)
+						{
+							//DebugPrintF("sphere and sphere");
+							Vector3 position1 = _gameObjects[i]->GetTransform()->GetPosition();
+							Vector3 position2 = _gameObjects[k]->GetTransform()->GetPosition();
+							float radius1 = _gameObjects[i]->GetRigidBodyPhysicsModel()->GetCollider()->GetRadius();
+							float radius2 = _gameObjects[k]->GetRigidBodyPhysicsModel()->GetCollider()->GetRadius();
+
+							Vector3 collisionNormal = position1 - position2;
+							float distance = _math.Length(collisionNormal);
+							float penetrationDepth = distance - radius1 - radius2;
+
+							float inverseMass1 = 1 / _gameObjects[i]->GetRigidBodyPhysicsModel()->GetMass();
+							float inverseMass2 = 1 / _gameObjects[k]->GetRigidBodyPhysicsModel()->GetMass();
+
+							if (penetrationDepth < 0.0f) {
+								// Objects are overlapping
+								collisionNormal.Normalize();
+
+								Vector3 correction = collisionNormal * penetrationDepth;
+								correction *= (inverseMass1 / (inverseMass1 + inverseMass2));
+
+								position1 -= correction * inverseMass1;
+								position2 += correction * inverseMass2;
+
+								_gameObjects[i]->GetTransform()->SetPosition(position1);
+								_gameObjects[k]->GetTransform()->SetPosition(position2);
+
+								// Now you can apply the impulse as before
+								float restitution = 0.8f;
+								Vector3 relativeVelocity = _gameObjects[i]->GetRigidBodyPhysicsModel()->GetVelocity() - _gameObjects[k]->GetRigidBodyPhysicsModel()->GetVelocity();
+								if (_math.Dot(collisionNormal, relativeVelocity) < 0.0f)
+								{
+									float vj = -(1 + restitution) * _math.Dot(collisionNormal, relativeVelocity);
+									float inverseMass1 = 1 / _gameObjects[i]->GetRigidBodyPhysicsModel()->GetMass();
+									float inverseMass2 = 1 / _gameObjects[k]->GetRigidBodyPhysicsModel()->GetMass();
+									float j = vj / (inverseMass1 + inverseMass2);
+									Vector3 impulse1 = inverseMass1 * j * collisionNormal;
+									Vector3 impulse2 = -inverseMass2 * j * collisionNormal;
+									_gameObjects[i]->GetRigidBodyPhysicsModel()->ApplyImpulse(impulse1);
+									_gameObjects[k]->GetRigidBodyPhysicsModel()->ApplyImpulse(impulse2);
+								}
+							}
+						}
+						
+						//cube colliders
+						if (collider1->GetColliderType() == 2.0f && collider2->GetColliderType() == 2.0f)
+						{
+							//DebugPrintF("cube and cube");
+							Vector3 pos1 = collider1->GetPosition();
+							Vector3 aMin = pos1 + collider1->GetMin();
+							Vector3 aMax = pos1 + collider1->GetMax();
+							//DebugPrintF("\ncube 1: pos %f %f %f \nmin  %f %f %f \nmax  %f %f %f", pos1.x, pos1.y, pos1.z, aMin.x, aMin.y, aMin.z, aMax.x, aMax.y, aMax.z);
+							Vector3 pos2 = collider2->GetPosition();
+							Vector3 bMin = pos2 + collider2->GetMin();
+							Vector3 bMax = pos2 + collider2->GetMax();
+							//DebugPrintF("\ncube 1: pos %f %f %f\n min  %f %f %f\n max  %f %f %f", pos2.x, pos2.y, pos2.z, bMin.x, bMin.y, bMin.z, bMax.x, bMax.y, bMax.z);
+							float xOverlap = min(aMax.x, bMax.x) - max(aMin.x, bMin.x);
+							float yOverlap = min(aMax.y, bMax.y) - max(aMin.y, bMin.y);
+							float zOverlap = min(aMax.z, bMax.z) - max(aMin.z, bMin.z);
+
+							Vector3 collisionNormal = Vector3(0, 0, 0);
+
+							//DebugPrintF("\ncollision norm %f %f %f", collisionNormal.x, collisionNormal.y, collisionNormal.z);
+
+							if (xOverlap < yOverlap && xOverlap < zOverlap)
+							{
+								if (aMin.x < bMin.x) collisionNormal = Vector3(-1.0f, 0.0f, 0.0f);
+								else collisionNormal = Vector3(1.0f, 0.0f, 0.0f);
+							}
+							else if (yOverlap < zOverlap)
+							{
+								if (aMin.y < bMin.y) collisionNormal = Vector3(0.0f, -1.0f, 0.0f);
+								else collisionNormal = Vector3(0.0f, 1.0f, 0.0f);
+							}
+							else
+							{
+								if (aMin.z < bMin.z) collisionNormal = Vector3(0.0f, 0.0f, -1.0f);
+								else collisionNormal = Vector3(0.0f, 0.0f, 1.0f);
+							}
+
+							float penetrationDepth = _math.Min(xOverlap, _math.Min(yOverlap, zOverlap));
+
+
+							//DebugPrintF("\npenetrationDepth %f", penetrationDepth);
+
+							float inverseMass1 = 1 / _gameObjects[i]->GetRigidBodyPhysicsModel()->GetMass();
+							float inverseMass2 = 1 / _gameObjects[k]->GetRigidBodyPhysicsModel()->GetMass();
+
+							if (penetrationDepth > 0.0f) {
+								Vector3 correction = collisionNormal * penetrationDepth;
+								correction *= (inverseMass1 / (inverseMass1 + inverseMass2));
+								DebugPrintF("\n%f %f %f", correction.x, correction.y, correction.z);
+								Vector3 position1 = _gameObjects[i]->GetTransform()->GetPosition();
+								Vector3 position2 = _gameObjects[k]->GetTransform()->GetPosition();
+
+								position1 += correction * inverseMass1;
+								position2 -= correction * inverseMass2;
+
+								_gameObjects[i]->GetTransform()->SetPosition(position1);
+								_gameObjects[k]->GetTransform()->SetPosition(position2);
+							}
+
+							float restitution = 0.6f;
+							Vector3 relativeVelocity = _gameObjects[i]->GetRigidBodyPhysicsModel()->GetVelocity() - _gameObjects[k]->GetRigidBodyPhysicsModel()->GetVelocity();
+							float relativeSpeedAlongNormal = _math.Dot(relativeVelocity, collisionNormal);
+							if (relativeSpeedAlongNormal < 0.0f)
+							{
+								float totalInverseMass = _gameObjects[i]->GetRigidBodyPhysicsModel()->GetInverseMass() + _gameObjects[k]->GetRigidBodyPhysicsModel()->GetInverseMass();
+								if (totalInverseMass <= 0.0f) return;
+								float impulseMagnitude = -(1.0f + restitution) * relativeSpeedAlongNormal / totalInverseMass;
+								Vector3 impulse = impulseMagnitude * collisionNormal;
+								_gameObjects[i]->GetRigidBodyPhysicsModel()->ApplyImpulse(impulse);
+								_gameObjects[k]->GetRigidBodyPhysicsModel()->ApplyImpulse(-impulse);
+							}
+						}
+						//sphere and cube
+						if ((collider1->GetColliderType() == 1.0f && collider2->GetColliderType() == 2.0f) ||
+							(collider1->GetColliderType() == 2.0f && collider2->GetColliderType() == 1.0f))
+						{
+							//DebugPrintF("sphere and cube\n");
+
+							GameObject* sphere = nullptr;
+							GameObject* cube = nullptr;
+
+							if (collider1->GetColliderType() == 1.0f) {
+								sphere = _gameObjects[i];
+								cube = _gameObjects[k];
+							}
+							else {
+								sphere = _gameObjects[k];
+								cube = _gameObjects[i];
+							}
+
+							collider1 = sphere->GetRigidBodyPhysicsModel()->GetCollider();
+							collider2 = cube->GetRigidBodyPhysicsModel()->GetCollider();
+
+							Vector3 aMin = cube->GetTransform()->GetPosition() + collider2->GetMin();
+							Vector3 aMax = cube->GetTransform()->GetPosition() + collider2->GetMax();
+
+							Vector3 closestPoint = _math.Clamp(collider1->GetPosition(), aMin, aMax);
+
+							Vector3 collisionNormal = collider1->GetPosition() - closestPoint;
+							collisionNormal = _math.Normalise(collisionNormal);
+
+							Vector3 relativeVelocity = sphere->GetRigidBodyPhysicsModel()->GetVelocity() - cube->GetRigidBodyPhysicsModel()->GetVelocity();
+
+							if (_math.Dot(collisionNormal, relativeVelocity) <= 0.0f)
+							{
+								float sphereInverseMass = 1 / sphere->GetRigidBodyPhysicsModel()->GetMass();
+								float aabbInverseMass = 1 / cube->GetRigidBodyPhysicsModel()->GetMass();
+
+								float penetrationDepth = collider1->GetRadius() - _math.Distance(collider1->GetPosition(), closestPoint);
+
+								if (penetrationDepth > 0.0f) {
+									const float percent = 0.2f;
+									const float slop = 0.01f;
+									Vector3 correction = max(penetrationDepth - slop, 0.0f) / (sphereInverseMass + aabbInverseMass) * percent * collisionNormal;
+
+									Vector3 position1 = cube->GetTransform()->GetPosition();
+									Vector3 position2 = sphere->GetTransform()->GetPosition();
+
+									position1 -= correction * sphereInverseMass;
+									position2 += correction * aabbInverseMass;
+
+									cube->GetTransform()->SetPosition(position1);
+									sphere->GetTransform()->SetPosition(position2);
+								}
+
+								float restitution = 0.8f;
+
+
+								float impulseScalar = -(1 + restitution) * _math.Dot(collisionNormal, relativeVelocity) / (sphereInverseMass + aabbInverseMass);
+
+								Vector3 sphereImpulse = impulseScalar * sphereInverseMass * collisionNormal;
+								Vector3 aabbImpulse = -impulseScalar * aabbInverseMass * collisionNormal;
+
+								sphere->GetRigidBodyPhysicsModel()->ApplyImpulse(sphereImpulse);
+								cube->GetRigidBodyPhysicsModel()->ApplyImpulse(aabbImpulse);
+
+
 							}
 						}
 
-						Vector3 correction = Vector3(0, distance, 0);
-						Vector3 newPosition = collider2->GetPosition() + correction;
-						_gameObjects[k]->GetTransform()->SetPosition(newPosition);
-						collider2->SetGrounded(true);
+						//plane and sphere
+						if (collider1->GetColliderType() == 3.0f && collider2->GetColliderType() == 1.0f)
+						{
+							Vector3 relativeVelocity = _gameObjects[k]->GetRigidBodyPhysicsModel()->GetVelocity();
+
+							float dotProduct = _math.Dot(relativeVelocity, collider1->GetNormal());
+							Vector3 reflection = relativeVelocity - 2.0f * dotProduct * collider1->GetNormal();
+
+							float dampingFactor = 0.2f;
+							Vector3 newVelocity = dampingFactor * reflection;
+							//DebugPrintF("\n%f %f %f",newVelocity.x, newVelocity.y, newVelocity.z);
+							Vector3 temp = _gameObjects[k]->GetRigidBodyPhysicsModel()->GetVelocity();
+							temp.y = newVelocity.y;
+							_gameObjects[k]->GetRigidBodyPhysicsModel()->SetVelocity(temp);
+
+
+							float penetrationDepth = -(_math.Dot((collider2->GetPosition() - collider1->GetPosition()), collider1->GetNormal()) - collider2->GetRadius());
+							//DebugPrintF("\n%f", penetrationDepth);
+							if (penetrationDepth > 0.0f)
+							{
+								penetrationDepth = std::ceil(penetrationDepth * 100) / 100;
+								//DebugPrintF("\n%f", penetrationDepth);
+								Vector3 correction = penetrationDepth * collider1->GetNormal();
+								Vector3 newPosition = collider2->GetPosition() + correction;
+								_gameObjects[k]->GetTransform()->SetPosition(newPosition);
+							}
+
+							collider2->SetGrounded(true);
+						}
+						
+						//plane and cube
+						if (collider1->GetColliderType() == 3.0f && collider2->GetColliderType() == 2.0f)
+						{
+							Vector3 aMin = collider2->GetPosition() + collider2->GetMin();
+							Vector3 aMax = collider2->GetPosition() + collider2->GetMax();
+
+							Vector3 corners[4] = {
+								Vector3(aMin.x, aMin.y, aMin.z),
+								Vector3(aMin.x, aMin.y, aMax.z),
+								Vector3(aMax.x, aMin.y, aMin.z),
+								Vector3(aMax.x, aMin.y, aMax.z)
+							};
+
+							float distance = 0.0f;
+
+							for (int i = 0; i < 4; i++)
+							{
+								distance = -_math.Dot(collider1->GetNormal(), corners[i]) - collider1->GetDistance() - 1;
+								if (distance >= 0.00)
+								{
+									break;
+								}
+							}
+
+							Vector3 correction = Vector3(0, distance, 0);
+							Vector3 newPosition = collider2->GetPosition() + correction;
+							_gameObjects[k]->GetTransform()->SetPosition(newPosition);
+							collider2->SetGrounded(true);
+						}
+						*/
+
 					}
 				}
 			}

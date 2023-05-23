@@ -11,6 +11,23 @@ GameObject::~GameObject()
 }
 
 
+RigidBody* GameObject::GetRigidBodyPhysicsModel()
+{
+    // Try to cast to RigidBody*
+    RigidBody* rb = dynamic_cast<RigidBody*>(_physicsModel);
+
+    // If cast is successful, rb is not null
+    if (rb)
+    {
+        return rb;
+    }
+    else
+    {
+        // Handle error here
+        return nullptr;
+    }
+}
+
 void GameObject::Update(float deltaTime)
 {
     _physicsModel->Update(deltaTime);

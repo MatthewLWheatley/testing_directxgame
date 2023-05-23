@@ -4,9 +4,6 @@ C:\Users\Matty\Desktop\testt\test\testing_directxgame\Quaternion.h(200,25): warn
 C:\Users\Matty\Desktop\testt\test\testing_directxgame\ParticleModel.h(16,82): warning C4100: 'gravityInversion': unreferenced formal parameter
 C:\Users\Matty\Desktop\testt\test\testing_directxgame\ParticleModel.h(16,64): warning C4100: 'pertubation': unreferenced formal parameter
 C:\Users\Matty\Desktop\testt\test\testing_directxgame\ParticleModel.h(16,47): warning C4100: 'resetTime': unreferenced formal parameter
-C:\Users\Matty\Desktop\testt\test\testing_directxgame\GameObject.h(25,14): error C2143: syntax error: missing ';' before '*'
-C:\Users\Matty\Desktop\testt\test\testing_directxgame\GameObject.h(25,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\Matty\Desktop\testt\test\testing_directxgame\GameObject.h(26,5): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
 C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(205,19): warning C4456: declaration of 'collider' hides previous local declaration
 C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(187,17): message : see declaration of 'collider'
 C:\Users\Matty\Desktop\testt\test\testing_directxgame\Application.cpp(209,34): error C2039: 'ApplyGravity': is not a member of 'PhysicsModel'
@@ -141,16 +138,10 @@ C:\Users\Matty\Desktop\testt\test\testing_directxgame\Quaternion.h(200,25): warn
 C:\Users\Matty\Desktop\testt\test\testing_directxgame\ParticleModel.h(16,82): warning C4100: 'gravityInversion': unreferenced formal parameter
 C:\Users\Matty\Desktop\testt\test\testing_directxgame\ParticleModel.h(16,64): warning C4100: 'pertubation': unreferenced formal parameter
 C:\Users\Matty\Desktop\testt\test\testing_directxgame\ParticleModel.h(16,47): warning C4100: 'resetTime': unreferenced formal parameter
-C:\Users\Matty\Desktop\testt\test\testing_directxgame\GameObject.h(25,14): error C2143: syntax error: missing ';' before '*'
-C:\Users\Matty\Desktop\testt\test\testing_directxgame\GameObject.h(25,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\Matty\Desktop\testt\test\testing_directxgame\GameObject.h(26,5): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
   GameObject.cpp
 C:\Users\Matty\Desktop\testt\test\testing_directxgame\Quaternion.h(195,23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
 C:\Users\Matty\Desktop\testt\test\testing_directxgame\Quaternion.h(200,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
 C:\Users\Matty\Desktop\testt\test\testing_directxgame\ParticleModel.h(16,82): warning C4100: 'gravityInversion': unreferenced formal parameter
 C:\Users\Matty\Desktop\testt\test\testing_directxgame\ParticleModel.h(16,64): warning C4100: 'pertubation': unreferenced formal parameter
 C:\Users\Matty\Desktop\testt\test\testing_directxgame\ParticleModel.h(16,47): warning C4100: 'resetTime': unreferenced formal parameter
-C:\Users\Matty\Desktop\testt\test\testing_directxgame\GameObject.h(25,14): error C2143: syntax error: missing ';' before '*'
-C:\Users\Matty\Desktop\testt\test\testing_directxgame\GameObject.h(25,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\Matty\Desktop\testt\test\testing_directxgame\GameObject.h(26,5): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
   Generating Code...

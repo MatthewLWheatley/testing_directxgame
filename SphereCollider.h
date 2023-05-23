@@ -19,6 +19,10 @@ public:
 	bool CollidesWith(AABBCollider& other) override;
 	bool CollidesWith(PlaneCollider& other) override;
 
+	void Collide(SphereCollider* other) override;
+	void Collide(AABBCollider* other) override;
+	void Collide(PlaneCollider* other) override;
+
 	float GetColliderType() override { return 1.0f; }
 
 	float GetRadius() override { return radius; }

@@ -1,6 +1,8 @@
 #pragma once
 #include "PhysicsModel.h"
 
+class Collider;
+
 class RigidBody : public PhysicsModel
 {
 public:
@@ -38,7 +40,7 @@ public:
     bool IsGravity() { return _useGravity; }
 
     bool IsCollideable() const { return _collider != nullptr; }
-    Collider* GetCollider() const { return _collider; }
+    Collider* GetCollider();
     void SetCollider(Collider* collider) { _collider = collider; }
 
     void ApplyImpulse(Vector3 impulse);

@@ -5,6 +5,11 @@ void RigidBody::AddForce(Vector3 force)
     _netforce += force;
 }
 
+Collider* RigidBody::GetCollider()
+{
+     return _collider; 
+}
+
 void RigidBody::ApplyImpulse(Vector3 impulse)
 {
     _velocity += impulse / _mass;
@@ -78,6 +83,8 @@ void RigidBody::Update(float deltaTime)
     // Update position
     Vector3 currentPosition = _transform->GetPosition();
     _transform->SetPosition(currentPosition + _velocity * deltaTime);
+
+    PhysicsModel::Update(deltaTime);
 }
 
 void RigidBody::SetVelocity(Vector3 velocity)
